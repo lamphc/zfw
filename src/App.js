@@ -16,7 +16,7 @@ function App() {
         <Link to="/map">地图找房</Link>
         <Switch>
           {/* 路由重定向 */}
-          <Redirect from="/" to="/home" />
+          <Redirect exact from="/" to="/home" />
           {/* 应用的一级路由 */}
           <Route path="/home" component={Home} />
           <Route path="/cityList" component={CityList} />
