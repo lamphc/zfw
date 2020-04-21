@@ -4,17 +4,22 @@
  * 2. 给axios实例添加拦截器
  */
 import axios from 'axios';
+import { Toast } from 'antd-mobile';
 
-// 创建一个axios实例
+
+// 后台的基础路径
+const BASE_URL = 'http://api-haoke-dev.itheima.net';
+// 创建一个axios实例(单例模式)
 const myAxios = axios.create({
-  baseURL: 'http://api-haoke-dev.itheima.net',
+  baseURL: BASE_URL,
 });
 
 // 添加拦截器
 // Add a request interceptor=》请求之前调用
 myAxios.interceptors.request.use(function (config) {
   // Do something before request is sent
-  console.log('开始请求了：', config)
+  // console.log('开始请求了：', config)
+  Toast.loading('加载中...', 0)
   return config;
 }, function (error) {
   // Do something with request error
@@ -25,15 +30,24 @@ myAxios.interceptors.request.use(function (config) {
 myAxios.interceptors.response.use(function (response) {
   // Any status code that lie within the range of 2xx cause this function to trigger
   // Do something with response data
-  console.log('请求成功了：', response)
-  return response;
+  // console.log('请求成功了：', response)
+  Toast.hide()
+  // 设计一个新的简化的数据结构，然后返回
+  let _res = {
+    status: response.data.status,
+    data: response.data.body,
+    description: response.data.description
+  }
+
+  return _res;
 }, function (error) {
   // Any status codes that falls outside the range of 2xx cause this function to trigger
   // Do something with response error
   return Promise.reject(error);
 });
 
-export default myAxios
+export default myAxios;
+export { BASE_URL }
 
 
 

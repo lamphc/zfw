@@ -21,6 +21,19 @@ class Home extends Component {
   };
 
 
+  componentDidMount() {
+    // 监听路由变化 => 不能用PureCompotent做性能优化
+    this.props.history.listen((location) => {
+      if (location.pathname !== this.state.selectedTab) {
+        this.setState({
+          selectedTab: location.pathname,
+        });
+      }
+
+    })
+  }
+
+
 
   // 渲染TabBar组件
   renderTabBar = () => {
@@ -42,9 +55,9 @@ class Home extends Component {
             selected={this.state.selectedTab === item.path}
             // 点击事件=》切换路由
             onPress={() => {
-              this.setState({
-                selectedTab: item.path,
-              });
+              // this.setState({
+              //   selectedTab: item.path,
+              // });
               this.props.history.push(item.path)
             }}
           />
