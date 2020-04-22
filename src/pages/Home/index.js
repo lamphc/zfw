@@ -23,13 +23,13 @@ class Home extends Component {
 
   componentDidMount() {
     // 监听路由变化 => 不能用PureCompotent做性能优化
+    // 路由监听事件解绑
     this.props.history.listen((location) => {
       if (location.pathname !== this.state.selectedTab) {
         this.setState({
           selectedTab: location.pathname,
         });
       }
-
     })
   }
 
