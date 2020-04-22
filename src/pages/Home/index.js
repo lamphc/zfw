@@ -22,16 +22,35 @@ class Home extends Component {
 
 
   componentDidMount() {
-    // 监听路由变化 => 不能用PureCompotent做性能优化
-    // 路由监听事件解绑
-    this.props.history.listen((location) => {
+    this.listenRouter()
+  }
+
+  // 监听路由变化 => 不能用PureCompotent做性能优化
+  // 路由监听事件解绑
+  listenRouter = () => {
+    // let id = setTimeout(() => {
+    //   console.log(1000)
+    // }, 2000)
+    // console.log(id)
+    // // 清除定时器
+    // clearTimeout(id)
+    this.unlisten = this.props.history.listen((location) => {
       if (location.pathname !== this.state.selectedTab) {
         this.setState({
           selectedTab: location.pathname,
         });
       }
     })
+    // console.log('路由监听事件返回值', sd)
   }
+
+
+  // 组件销毁
+  componentWillUnmount() {
+    // 销毁路由监听事件
+    this.unlisten()
+  }
+
 
 
 
