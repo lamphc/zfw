@@ -5,8 +5,10 @@ import React, { Component } from 'react';
 import { Carousel, Flex, Grid, WingBlank, SearchBar } from 'antd-mobile';
 import { BASE_URL } from '../../utils/axios';
 import { getSwiper, getGruops, getNews } from '../../utils/api/Home';
+
 import './index.scss'
 import Navs from '../../utils/navConfig';
+import { getCurCity } from '../../utils';
 
 
 class Index extends Component {
@@ -17,6 +19,13 @@ class Index extends Component {
     groups: [],
     // 咨询列表数据
     news: [],
+    // 当前城市
+    curCity: {
+      // 城市名字
+      label: '--',
+      // 城市ID
+      value: ''
+    },
     // 头部搜索的关键词
     keyword: '',
     // 设置轮播图的默认高度
@@ -25,7 +34,16 @@ class Index extends Component {
     isPlay: false,
   }
   componentDidMount() {
-    this.getAllDatas()
+    this.getAllDatas();
+    this.getCurCity()
+
+  }
+
+  getCurCity = async () => {
+    const res = await getCurCity()
+    this.setState({
+      curCity: res
+    })
   }
 
 
@@ -60,7 +78,7 @@ class Index extends Component {
           <div className="city" onClick={() => {
             push('/cityList')
           }}>
-            北京<i className="iconfont icon-arrow" />
+            {this.state.curCity.label}<i className="iconfont icon-arrow" />
           </div>
           <SearchBar
             // 受控组件（双向绑定）

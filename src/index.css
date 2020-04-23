@@ -22,8 +22,9 @@ li {
 }
 
 * {
-  /* touch-action: pan-y; */
-  touch-action: none;
+  touch-action: pan-y;
+  /* 解决了轮播图警告问题，但是移动端不支持滑动下拉 */
+  /* touch-action: none; */
   box-sizing: border-box;
 }
 
