@@ -40,7 +40,7 @@ export async function getCurCity() {
   // 同步方式
   let res = await getCityName();
   let realName = res.substr(0, 2);
-  if (!curCity || realName !== curCity.label) {
+  if (!curCity) {
     // 如果没有（第一次定位）
     // 获取定位信息,返回promise对象=》resolve结果
     return new Promise(async (resove, reject) => {
@@ -61,6 +61,8 @@ export async function getCurCity() {
     return Promise.resolve(curCity)
   }
 }
+
+export { CURR_CITY }
 
 /**
  * 本地存储的方式？
