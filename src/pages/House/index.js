@@ -50,7 +50,11 @@ export default class HouseList extends React.Component {
     item.src = `${BASE_URL}${item.houseImg}`
     return (
       <HouseItem {...item} key={key} onClick={() => {
-        this.props.history.push('/detail/' + item.houseCode)
+        // h5 history
+        // this.props.history.push('/detail/' + item.houseCode, { id: item.houseCode, a: 100 })
+        // hash的形式 =》 传参数
+        this.props.history.push({ pathname: '/detail/' + item.houseCode, state: { id: item.houseCode, a: 100 } })
+
       }} style={style} />
     );
   }
