@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9b5efe92a80b43284ea50aad7c383bc4",
+    "revision": "6d9ac1255d64e90bbe16cbbc77c403c1",
     "url": "/zfw/index.html"
   },
   {
-    "revision": "a3bbeadc2bd8cbeb4117",
-    "url": "/zfw/static/css/2.38aff980.chunk.css"
+    "revision": "c0d3f86ecf528da06ab3",
+    "url": "/zfw/static/css/2.dfa913b5.chunk.css"
   },
   {
-    "revision": "7fe1201e8bde378c218f",
-    "url": "/zfw/static/css/main.1d57d070.chunk.css"
+    "revision": "75794bf97b648397c1ec",
+    "url": "/zfw/static/css/main.d5d02b01.chunk.css"
   },
   {
-    "revision": "a3bbeadc2bd8cbeb4117",
-    "url": "/zfw/static/js/2.1babdc87.chunk.js"
+    "revision": "c0d3f86ecf528da06ab3",
+    "url": "/zfw/static/js/2.445c04cc.chunk.js"
   },
   {
-    "revision": "4d47ffde3dc69784e8e23fd910817ef8",
-    "url": "/zfw/static/js/2.1babdc87.chunk.js.LICENSE.txt"
+    "revision": "bdfdaee5779fe0c6a048c3619e9bf199",
+    "url": "/zfw/static/js/2.445c04cc.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7fe1201e8bde378c218f",
-    "url": "/zfw/static/js/main.79ce56ac.chunk.js"
+    "revision": "75794bf97b648397c1ec",
+    "url": "/zfw/static/js/main.f96ba69a.chunk.js"
   },
   {
     "revision": "89413d9a9983743c0b10",
