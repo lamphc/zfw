@@ -35,3 +35,8 @@ export function addFav(id) {
 export function delFav(id) {
   return api.delete(`/user/favorites/${id}`)
 }
+
+// 获取已发布房源 
+export const getUserHouses = () => {
+  return api.get('/user/houses')
+}

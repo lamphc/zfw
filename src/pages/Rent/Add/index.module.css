@@ -53,11 +53,11 @@
   vertical-align: middle;
 }
 
-:global [data-role='rent-list'] .am-input-label {
+:global [data-role="rent-list"] .am-input-label {
   color: #666;
 }
 
-:global [data-role='rent-list'] .am-list-item .am-list-line .am-list-content {
+:global [data-role="rent-list"] .am-list-item .am-list-line .am-list-content {
   color: #666;
 }
 
@@ -81,6 +81,7 @@
 }
 
 /* .header :global(.am-list-body) { */
+/* 覆盖是组件库样式（ant-mobile） */
 :global(.am-list-item .am-list-line .am-list-content) {
   font-size: 14px;
 }
