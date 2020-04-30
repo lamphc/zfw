@@ -12,20 +12,26 @@ export function login(data) {
 
 // 获取当前登录人信息
 export function getUserData() {
-  return api.get('/user', {
-    headers: {
-      authorization: getToken()
-    }
-  })
+  return api.get('/user')
 }
 
 
 // 登出接口
 export function logout() {
-  return api.post('/user/logout', null, {
-    headers: {
-      authorization: getToken()
-    }
-  })
+  return api.post('/user/logout')
 }
 
+// 根据房源ID检查房源是否收藏过
+export function checkHouseFav(id) {
+  return api.get(`/user/favorites/${id}`)
+}
+
+// 添加收藏
+export function addFav(id) {
+  return api.post(`/user/favorites/${id}`)
+}
+
+// 删除收藏
+export function delFav(id) {
+  return api.delete(`/user/favorites/${id}`)
+}

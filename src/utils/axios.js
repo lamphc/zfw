@@ -5,6 +5,7 @@
  */
 import axios from 'axios';
 import { Toast } from 'antd-mobile';
+import { getToken } from '.';
 
 
 // 后台的基础路径
@@ -21,7 +22,17 @@ const myAxios = axios.create({
 myAxios.interceptors.request.use(function (config) {
   // Do something before request is sent
   // console.log('开始请求了：', config)
-  Toast.loading('加载中...', 0)
+  Toast.loading('加载中...', 0);
+  // 统一加token
+  // console.log(config.headers)
+  // 给那些接口加？
+  // 白名单 =》定义不要加token的接口
+  const { url, headers } = config;
+  const whiteName = ['/user/login', '/user/registered'];
+  // 用户相关的接口需要加（排除白名单）
+  if (url.startsWith('/user') && !whiteName.includes(url)) {
+    headers.authorization = getToken()
+  }
   return config;
 }, function (error) {
   // Do something with request error

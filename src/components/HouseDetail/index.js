@@ -5,6 +5,8 @@ import styles from './index.module.css'
 import HousePackage from '../HousePackage'
 import { BASE_URL } from '../../utils/axios'
 import { getDetailById } from '../../utils/api/House'
+import { isAuth } from '../../utils'
+import { checkHouseFav, delFav, addFav } from '../../utils/api/user'
 
 // 猜你喜欢
 const recommendHouses = [
@@ -103,7 +105,23 @@ export default class HouseDetail extends Component {
 
     // 获取房屋数据
     this.getHouseDetail();
-    console.log(this.props.location.state)
+    console.log('获取传递的参数：', this.props.location)
+    this.checkFav()
+  }
+
+  // 加载的时候，如果登录 =》调用接口 查看当前浏览的房源 是否收藏过
+  checkFav = async () => {
+    // 没有登录 不能看
+    if (!isAuth()) return;
+    // 注册过=》登录 =》看你自己收藏的房源
+    const { id } = this.props.match.params;
+    let { status, data: { isFavorite } } = await checkHouseFav(id);
+    if (status === 200) {
+      this.setState({
+        isFavorite
+      })
+    }
+
   }
 
   /* 
@@ -127,6 +145,46 @@ export default class HouseDetail extends Component {
         }
       ])
     */
+  handleFavorite = async () => {
+    if (!isAuth()) {
+      //  没有登录
+      alert('提示', '登录后才能收藏，是否去登录？', [
+        { text: '取消' },
+        {
+          text: '确定', onPress: async () => {
+            // 登录
+            this.props.history.push({ pathname: '/login', data: { backUrl: this.props.location.pathname } })
+          }
+        },
+      ])
+    } else {
+      //  登录 =》点击收藏
+      // 当前房源收否收藏过 =》 收藏过 =》删了
+      const { isFavorite } = this.state;
+      const { id } = this.props.match.params;
+      let res;
+      if (isFavorite) {
+        res = await delFav(id);
+
+        if (res.status === 200) {
+          Toast.info(res.description)
+          this.setState({
+            isFavorite: false
+          })
+        }
+      } else {
+        res = await addFav(id);
+        if (res.status === 200) {
+          Toast.info(res.description)
+          this.setState({
+            isFavorite: true
+          })
+        }
+      }
+      // console.log(res)
+
+    }
+  }
 
   // 获取房屋详细信息
   async getHouseDetail() {

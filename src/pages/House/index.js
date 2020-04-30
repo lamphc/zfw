@@ -53,7 +53,7 @@ export default class HouseList extends React.Component {
         // h5 history
         // this.props.history.push('/detail/' + item.houseCode, { id: item.houseCode, a: 100 })
         // hash的形式 =》 传参数
-        this.props.history.push({ pathname: '/detail/' + item.houseCode, state: { id: item.houseCode, a: 100 } })
+        this.props.history.push({ pathname: '/detail/' + item.houseCode, data: { id: item.houseCode, backUrl: this.props.location.pathname } })
 
       }} style={style} />
     );
