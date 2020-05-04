@@ -17,45 +17,6 @@ const REG_PWD = /^[a-zA-Z_\d]{5,12}$/
 
 class Login extends Component {
 
-  // // 设置状态数据
-  // state = {
-  //   // 用户名
-  //   username: '',
-  //   // 密码
-  //   password: ''
-  // }
-
-  // // 手控组件（双向绑定）=> 一个事件 处理多个表单元素
-  // handlerChange = (e) => {
-  //   console.log(e.target.name)
-  //   // 更新状态数据？
-  //   this.setState({
-  //     // key:value
-  //     [e.target.name]: e.target.value
-  //   })
-  // }
-
-  // // 登录
-  // login = async (e) => {
-  //   // 阻止默认事件
-  //   e.preventDefault()
-  //   // 获取用户名和密码
-  //   const { username, password } = this.state;
-  //   // console.log(username, password)
-  //   // 调接口=》校验用户名和密码
-  //   const { status, data, description } = await login({ username, password });
-  //   if (status === 200) {
-  //     Toast.success(description, 2);
-  //     //  存储token
-  //     setLocal(ZFW_TOKEN, data.token);
-  //     // 跳转页面
-  //     this.props.history.push('/')
-  //   } else {
-  //     Toast.fail(description, 2)
-  //   }
-  // }
-
-
   render() {
     const {
       values,

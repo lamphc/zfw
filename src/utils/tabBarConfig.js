@@ -14,6 +14,12 @@ const TabBarConfig = [
     title: '我的',
     icon: 'icon-my',
     path: '/home/profile'
+  },
+  // 演示react hook
+  {
+    title: 'Hook',
+    icon: 'icon-my',
+    path: '/home/hook'
   }
 ]
 

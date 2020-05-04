@@ -12,6 +12,7 @@ import Index from '../Index';
 import House from '../House';
 import Profile from '../Profile';
 import TabBarConfig from '../../utils/tabBarConfig';
+import HookDemo from '../Hook';
 
 class Home extends Component {
 
@@ -94,6 +95,8 @@ class Home extends Component {
         <Route exact path="/home" component={Index} />
         <Route path="/home/house" component={House} />
         <Route path="/home/profile" component={Profile} />
+        {/* hook */}
+        <Route path="/home/hook" component={HookDemo} />
 
         {/* 标签栏TabBar */}
         <div className="tabBar">
