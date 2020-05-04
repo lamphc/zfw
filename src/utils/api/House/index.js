@@ -30,6 +30,11 @@ export function getListByFilter(cityId, filters, start, end) {
 export function getDetailById(id) {
   return api.get(`/houses/${id}`)
 }
+// 上传图片
+export function uploadImgs(fd) {
+  return api.post(`/houses/image`, fd)
+}
+
 
 
 
