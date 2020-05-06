@@ -29,7 +29,7 @@ const Navs = [
   },
   {
     id: 4,
-    name: '去出租',
+    name: '发布房源',
     img: Nav4,
     path: '/rent/add'
   }
