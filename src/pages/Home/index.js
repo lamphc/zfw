@@ -1,7 +1,7 @@
 /**
  * TabBar
  */
-import React, { Component } from 'react';
+import React, { Component, lazy } from 'react';
 
 import { Route } from 'react-router-dom'
 import { TabBar } from 'antd-mobile';
@@ -9,10 +9,12 @@ import './index.css'
 
 
 import Index from '../Index';
-import House from '../House';
+// import House from '../House';
 import Profile from '../Profile';
 import TabBarConfig from '../../utils/tabBarConfig';
 import HookDemo from '../Hook';
+
+const House = lazy(() => import('../House'))
 
 class Home extends Component {
 
