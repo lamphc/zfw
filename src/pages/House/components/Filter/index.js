@@ -175,9 +175,8 @@ export default class Filter extends Component {
         case 'mode':
           data = rentType
           break;
-        case 'price':
+        default:
           data = price
-          break;
       }
 
       return <FilterPicker data={data} key={openType} value={curSel} cols={cols} onOk={this.onOk} onCancle={this.onCancle} />

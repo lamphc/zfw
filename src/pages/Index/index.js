@@ -141,7 +141,7 @@ class Index extends Component {
               this.props.history.push({ pathname: item.path }, { a: 10, b: '123' })
             }
           } key={item.id}>
-            <img src={item.img} />
+            <img alt="" src={item.img} />
             <p>{item.name}</p>
           </Flex.Item>)
         }
