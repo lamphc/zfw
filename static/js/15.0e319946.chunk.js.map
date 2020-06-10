@@ -1,0 +1,1 @@
+{"version":3,"sources":["pages/NotFound/index.js"],"names":["NotFound"],"mappings":"6FAAA,2BASeA,UARE,WACf,OACE,6BACE","file":"static/js/15.0e319946.chunk.js","sourcesContent":["import React from 'react';\nconst NotFound = function () {\n  return (\n    <div>\n      <h1>页面找不到了...404!</h1>\n    </div>\n  )\n}\n\nexport default NotFound;"],"sourceRoot":""}
