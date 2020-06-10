@@ -225,7 +225,7 @@ class Index extends Component {
 
         {/* 最新资讯 */}
         <div className="news">
-          <h3 style={{ color: 'red' }} className="group-title">最新资讯</h3>
+          <h3 style={{ color: 'orange' }} className="group-title">最新资讯</h3>
           <WingBlank size="md">{this.renderNews()}</WingBlank>
         </div>
       </div>
