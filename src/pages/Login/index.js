@@ -20,10 +20,10 @@ class Login extends Component {
   render() {
     const {
       values,
-      touched,
+
       errors,
       handleChange,
-      handleBlur,
+
       handleSubmit,
     } = this.props;
     // debugger

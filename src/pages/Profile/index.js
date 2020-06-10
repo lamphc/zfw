@@ -42,7 +42,7 @@ export default class Profile extends Component {
 
   // 判断用户是否登录 =》 登录 =》调用接口获取用户信息
   getUserInfo = async () => {
-    const { isLogin, userInfo } = this.state;
+    const { isLogin } = this.state;
     //  登录 =》调用接口获取用户信息
     if (isLogin) {
       let { status, data } = await getUserData();
